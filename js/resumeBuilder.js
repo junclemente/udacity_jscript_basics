@@ -8,7 +8,7 @@
     "github": "kajun",
     "location": "San Diego, CA"
   },
-  "url": "images/fry.jpg",
+  "url": "images/boardmeeting.jpg",
   "skills": [ "HTML5", "CSS3", "JavaScript", "jQuery", "Python", "MySQL", "Flask", "SQLAlchemy"]
 }
 
@@ -288,4 +288,5 @@ education.display = function() {
 
 education.display();
 
-initializeMap();
+// Add map
+$("#mapDiv").append(googleMap);
