@@ -165,12 +165,12 @@ bio.display = function() {
   // Check if bio.skills exist then append skills to the page
   if ( bio.skills.length > 0 ) {
     $("#header:last").append(HTMLskillsStart);
-    for ( i = 0; i < bio.skills.length; i++ ) {
+    for ( var i = 0; i < bio.skills.length; i++ ) {
       $("#skills:last").append(HTMLskills.replace( "%data%", bio.skills[i]));
     }
   }
   // Contacts
-  for ( contact in bio.contacts) {
+  for ( var contact in bio.contacts) {
     var formattedContact = HTMLcontactGeneric.replace( "%contact%", contact );
     formattedContact = formattedContact.replace( "%data%", bio.contacts[contact] );
     // Append contact info to top and footer
@@ -183,7 +183,7 @@ bio.display();
 
 // Format and Display work JSON
 work.display = function () {
-  for ( job in work.jobs ) {
+  for ( var job in work.jobs ) {
     $("#workExperience").append(HTMLworkStart);
     var formattedEmployer = HTMLworkEmployer.replace( "%data%", work.jobs[job].employer );
     var formattedTitle = HTMLworkTitle.replace( "%data%", work.jobs[job].title );
@@ -221,7 +221,7 @@ inName();
 
 // Add display method to projects
 projects.display = function() {
-  for ( project in projects.projects ) {
+  for ( var project in projects.projects ) {
     $("#projects").append(HTMLprojectStart);
     var formattedProjectTitle = HTMLprojectTitle.replace( "%data%", projects.projects[project].title );
     $(".project-entry:last").append(formattedProjectTitle);
@@ -230,7 +230,7 @@ projects.display = function() {
     var formattedProjectDescription = HTMLprojectDescription.replace( "%data%", projects.projects[project].description );
     $(".project-entry:last").append(formattedProjectDescription);
     if (projects.projects[project].images.length > 0) {
-      for (img in projects.projects[project].images) {
+      for ( var img in projects.projects[project].images) {
         var formattedProjectImages = HTMLprojectImage.replace( "%data%", projects.projects[project].images[img]);
         $(".project-entry:last").append(formattedProjectImages);
       }
@@ -243,7 +243,7 @@ projects.display();
 // Add display method to education
 education.display = function() {
   // Display Education
-  for ( school in education.schools ) {
+  for ( var school in education.schools ) {
     $("#education").append(HTMLschoolStart);
     // Format School Name, URL, and Degree and append
     var formattedSchoolName = HTMLschoolName.replace( "%data%", education.schools[school].name );
@@ -265,7 +265,7 @@ education.display = function() {
   // Display Online Courses
   if ( education.onlineCourses ) {
     $(".education-entry:last").append(HTMLonlineClasses);
-    for ( online in education.onlineCourses ) {
+    for ( var online in education.onlineCourses ) {
       // Format Online Course Title and School Name
       var formattedOnlineTitle = HTMLonlineTitle.replace( "%data%", education.onlineCourses[online].title );
       // formattedOnlineTitle = formattedOnlineTitle.replace( "#", education.onlineCourses[online].url );
