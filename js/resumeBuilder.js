@@ -10,7 +10,7 @@
   },
   "url": "images/boardmeeting.jpg",
   "skills": [ "HTML5", "CSS3", "JavaScript", "jQuery", "Python", "MySQL", "Flask", "SQLAlchemy"]
-}
+};
 
 var work = {
   "jobs": [
@@ -43,7 +43,7 @@ var work = {
       "description": "Developed environmental and water sampling standard operating procedures per ISO 9001 requirements; performed root cause investigations to determine cause of non-conforming materials/products to provide recommendations for CAPA plan"
     }
   ]
-}
+};
 
 var projects = {
   "projects": [
@@ -66,7 +66,7 @@ var projects = {
       "images": [ "images/gscom1.jpg", "images/gscom2.png", "images/gscom3.png" ]
     }
   ]
-}
+};
 
 
 var education = {
@@ -146,7 +146,7 @@ var education = {
       "url": "http://www.udemy.com"
     }
   ]
-}
+};
 
 // Format and Display Bio JSON
 bio.display = function() {
@@ -177,7 +177,7 @@ bio.display = function() {
     $("#topContacts").append(formattedContact);
     $("#footerContacts").append(formattedContact);
   }
-}
+};
 
 bio.display();
 
@@ -198,7 +198,7 @@ work.display = function () {
 
     var formattedDescription = HTMLworkDescription.replace( "%data%", work.jobs[job].description );
     $(".work-entry:last").append( formattedDescription );
-  };
+  }
 };
 
 work.display();
@@ -236,7 +236,7 @@ projects.display = function() {
       }
     }
   }
-}
+};
 
 projects.display();
 
@@ -281,7 +281,7 @@ education.display = function() {
       $(".education-entry:last").append(formattedOnlineUrl);
     }
   }
-}
+};
 
 education.display();
 
