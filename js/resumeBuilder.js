@@ -210,10 +210,10 @@ $("#main").append(internationalizeButton);
 // Internationalizes name when button is pressed
 // Function capitalizes the first letter of the first name and capitalizes all letters on the last name.
 function inName() {
-  var fullName = bio.name.split(' ');
+  var fullName = bio.name.split(" ");
   var fName = fullName[0].charAt(0).toUpperCase() + fullName[0].slice(1);
   var lName = fullName[1].toUpperCase();
-  fullName = fName + ' ' + lName;
+  fullName = fName + " " + lName;
   return fullName;
 }
 
