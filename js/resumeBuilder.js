@@ -175,13 +175,14 @@ bio.display = function() {
     var formattedContact = HTMLcontactGeneric.replace( "%contact%", contact );
     formattedContact = formattedContact.replace( "%data%", bio.contacts[contact] );
     $("#topContacts").append(formattedContact);
+    $("#footerContacts").append(formattedContact);
   }
 }
 
 bio.display();
 
 // Format and Display work JSON
-function displayWork() {
+work.display = function () {
   for ( job in work.jobs ) {
     $("#workExperience").append(HTMLworkStart);
     var formattedEmployer = HTMLworkEmployer.replace( "%data%", work.jobs[job].employer );
@@ -200,12 +201,8 @@ function displayWork() {
   };
 };
 
-displayWork();
+work.display();
 
-// Displays x, y coordinates in console on log
-$(document).click(function(loc) {
-  logClicks( loc.pageX, loc.pageY );
-});
 
 // Adds "Internationalize" button at bottom of webpage
 $("#main").append(internationalizeButton);
