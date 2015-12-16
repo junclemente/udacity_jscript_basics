@@ -150,12 +150,11 @@ var education = {
 
 // Format and Display Bio JSON
 bio.display = function() {
-  // Role
-  var formattedRole = HTMLheaderRole.replace( "%data%", bio.role );
-  $("#header").prepend(formattedRole);
-  // Name
+  // Name and Role
   var formattedName = HTMLheaderName.replace( "%data%", bio.name );
-  $("#header").prepend(formattedName);
+  var formattedRole = HTMLheaderRole.replace( "%data%", bio.role );
+  var formattedNameRole = formattedName + formattedRole;
+  $("#header").prepend(formattedNameRole);
   // Welcome Message
   var formattedWelcomeMesage = HTMLwelcomeMsg.replace( "%data%", bio.welcomeMessage );
   $("#header").append(formattedWelcomeMesage);
@@ -174,6 +173,7 @@ bio.display = function() {
   for ( contact in bio.contacts) {
     var formattedContact = HTMLcontactGeneric.replace( "%contact%", contact );
     formattedContact = formattedContact.replace( "%data%", bio.contacts[contact] );
+    // Append contact info to top and footer
     $("#topContacts").append(formattedContact);
     $("#footerContacts").append(formattedContact);
   }
@@ -268,7 +268,7 @@ education.display = function() {
     for ( online in education.onlineCourses ) {
       // Format Online Course Title and School Name
       var formattedOnlineTitle = HTMLonlineTitle.replace( "%data%", education.onlineCourses[online].title );
-      formattedOnlineTitle = formattedOnlineTitle.replace( "#", education.onlineCourses[online].url );
+      // formattedOnlineTitle = formattedOnlineTitle.replace( "#", education.onlineCourses[online].url );
       var formattedOnlineSchool = HTMLonlineSchool.replace( "%data%", education.onlineCourses[online].school );
       var onlineTitleSchool = formattedOnlineTitle + formattedOnlineSchool; // Combine both Course Title and School Name
       $(".education-entry:last").append(onlineTitleSchool);
