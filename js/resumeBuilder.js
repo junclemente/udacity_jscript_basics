@@ -92,7 +92,7 @@ var education = {
       "location": "La Jolla, CA",
       "degree": "Bachelors of Science",
       "majors": [ "Microbiology", " Minors: Classical European Studies", "Music Technology" ],
-      "dates": "1993 - 1999",
+      "dates": "1999",
       "url": "https://ucsd.edu/"
     }
   ],
@@ -100,13 +100,13 @@ var education = {
     {
       "title": "Front End Web Developer Nanodegree",
       "school": "Udacity.com",
-      "dates": "2015 - present",
+      "dates": "2016",
       "url": "http://www.udacity.com/"
     },
     {
       "title": "Python and Web Development",
       "school": "Thinkful.com",
-      "dates": "2013 - 2014",
+      "dates": "2014",
       "url": "http://www.thinkful.com"
     },
     {
