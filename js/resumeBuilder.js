@@ -1,4 +1,4 @@
- var bio = {
+var bio = {
   "name": "Jun Clemente",
   "role": "Web Developer",
   "welcomeMessage": "Hello! Welcome to my portfolio!",
@@ -9,8 +9,40 @@
     "location": "San Diego, CA"
   },
   "url": "images/boardmeeting.jpg",
-  "skills": [ "HTML5", "CSS3", "JavaScript", "jQuery", "Python", "MySQL", "Flask", "SQLAlchemy"]
+  "skills": [ "HTML5", "CSS3", "JavaScript", "jQuery", "Python", "MySQL", "Flask", "SQLAlchemy"],
+  "display": function() {
+    // Name and Role
+    var formattedName = HTMLheaderName.replace( "%data%", bio.name );
+    var formattedRole = HTMLheaderRole.replace( "%data%", bio.role );
+    var formattedNameRole = formattedName + formattedRole;
+    $("#header").prepend(formattedNameRole);
+    // Welcome Message
+    var formattedWelcomeMesage = HTMLwelcomeMsg.replace( "%data%", bio.welcomeMessage );
+    $("#header").append(formattedWelcomeMesage);
+    // Bio Picture
+    var formattedBioPic = HTMLbioPic.replace( "%data%", bio.url );
+    $("#header").append(formattedBioPic);
+    // Bio Skills
+    // Check if bio.skills exist then append skills to the page
+    if ( bio.skills.length > 0 ) {
+      $("#header:last").append(HTMLskillsStart);
+      for ( var i = 0; i < bio.skills.length; i++ ) {
+        $("#skills:last").append(HTMLskills.replace( "%data%", bio.skills[i]));
+      }
+    }
+    // Contacts
+    for ( var contact in bio.contacts) {
+      var formattedContact = HTMLcontactGeneric.replace( "%contact%", contact );
+      formattedContact = formattedContact.replace( "%data%", bio.contacts[contact] );
+      // Append contact info to top and footer
+      $("#topContacts").append(formattedContact);
+      $("#footerContacts").append(formattedContact);
+    }
+  }
 };
+
+// Display Bio JSON
+bio.display();
 
 var work = {
   "jobs": [
@@ -50,7 +82,7 @@ var projects = {
     {
       "title": "Peptide Sequence Conversion Tool",
       "dates": "2014",
-      "description": "A web app built using Python and Flask that converts the 1-letter representation of an amino acid chain into its 3-letter equivalent",
+      "description": "A web app built using Python and Flask that converts the 1-letter representation of an amino acid chain into its 3-letter equivalent.",
       "images": [ "images/peptool1.jpg", "images/peptool2.jpg", "images/peptool3.jpg"]
     },
     {
@@ -75,7 +107,7 @@ var education = {
       "name": "Kelley School of Business, Indiana University",
       "location": "Indiana, IN",
       "degree": "Executive Certificate",
-      "majors": [ "Executive Certificate in the Business of Life Science (ECBLS" ],
+      "majors": [ "Executive Certificate in the Business of Life Science (ECBLS)" ],
       "dates": "2009",
       "url": "http://kelley.iu.edu/"
     },
@@ -147,39 +179,6 @@ var education = {
     }
   ]
 };
-
-// Format and Display Bio JSON
-bio.display = function() {
-  // Name and Role
-  var formattedName = HTMLheaderName.replace( "%data%", bio.name );
-  var formattedRole = HTMLheaderRole.replace( "%data%", bio.role );
-  var formattedNameRole = formattedName + formattedRole;
-  $("#header").prepend(formattedNameRole);
-  // Welcome Message
-  var formattedWelcomeMesage = HTMLwelcomeMsg.replace( "%data%", bio.welcomeMessage );
-  $("#header").append(formattedWelcomeMesage);
-  // Bio Picture
-  var formattedBioPic = HTMLbioPic.replace( "%data%", bio.url );
-  $("#header").append(formattedBioPic);
-  // Bio Skills
-  // Check if bio.skills exist then append skills to the page
-  if ( bio.skills.length > 0 ) {
-    $("#header:last").append(HTMLskillsStart);
-    for ( var i = 0; i < bio.skills.length; i++ ) {
-      $("#skills:last").append(HTMLskills.replace( "%data%", bio.skills[i]));
-    }
-  }
-  // Contacts
-  for ( var contact in bio.contacts) {
-    var formattedContact = HTMLcontactGeneric.replace( "%contact%", contact );
-    formattedContact = formattedContact.replace( "%data%", bio.contacts[contact] );
-    // Append contact info to top and footer
-    $("#topContacts").append(formattedContact);
-    $("#footerContacts").append(formattedContact);
-  }
-};
-
-bio.display();
 
 // Format and Display work JSON
 work.display = function () {
