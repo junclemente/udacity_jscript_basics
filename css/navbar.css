@@ -2,6 +2,10 @@ body {
   padding-top: 60px;
 }
 
+/*
+  Custom Navbar Color
+  Source: http://work.smarchal.com/twbscolor/
+*/
 .navbar-default {
   background-color: #484848;
   border-color: #f5ae23;
